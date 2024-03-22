@@ -1,0 +1,95 @@
+{
+  "defaultProject": "example-vite",
+  "npmScope": "evmts",
+  "targetDefaults": {
+    "test": {
+      "dependsOn": [
+        "^build",
+        "pretest"
+      ]
+    },
+    "test:run": {
+      "dependsOn": [
+        "^build",
+        "pretest"
+      ]
+    },
+    "test:watch": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "test:coverage": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "{projectRoot}/coverage"
+      ]
+    },
+    "typecheck": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "serve": {
+      "dependsOn": [
+        "build"
+      ]
+    },
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "{projectRoot}/dist",
+        "{projectRoot}/.vitepress",
+        "{projectRoot}/types"
+      ]
+    },
+    "dev": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "start:devnet": {}
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx-cloud",
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "test:coverage",
+          "test:run",
+          "test",
+          "format:check",
+          "typecheck",
+          "e2e",
+          "format:check",
+          "lint:check",
+          "lint",
+          "format"
+        ],
+        "accessToken": "MWI0MzBiNGItMzE0Ni00MGU3LWIxZGQtY2Q2ZDlmMDIzOTMwfHJlYWQ="
+      }
+    }
+  },
+  "affected": {
+    "defaultBase": "main"
+  },
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "namedInputs": {
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
+    "sharedGlobals": [
+      "{workspaceRoot}/tsconfig.json",
+      "{workspaceRoot}/nx.json"
+    ],
+    "production": [
+      "default"
+    ]
+  }
+}

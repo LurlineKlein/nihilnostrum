@@ -1,0 +1,62 @@
+{
+  "name": "@evmts/core",
+  "version": "0.3.1",
+  "private": false,
+  "description": "A typesafe library for writing forge scripts in typescript",
+  "keywords": [
+    "solidity",
+    "forge",
+    "foundry",
+    "sol",
+    "typescript",
+    "web3",
+    "blockchain"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/evmts/evmts-monorepo.git",
+    "directory": "core"
+  },
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "src/index.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "clean": "rm -rf node_modules && rm -rf artifacts && rm -rf dist && rm -rf cache",
+    "format": "rome format . --write",
+    "format:check": "rome format .",
+    "lint": "rome check . --apply-unsafe",
+    "lint:check": "rome check . --verbose",
+    "package:up": "pnpm up --latest",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:ui": "vitest --ui",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "abitype": "^0.8.11",
+    "rome": "^12.1.3",
+    "viem": "^1.2.10"
+  },
+  "devDependencies": {
+    "@vitest/ui": "^0.32.2",
+    "tsup": "^7.1.0",
+    "typescript": "^5.1.6",
+    "vitest": "^0.33.0",
+    "wagmi": "^1.3.0",
+    "zod": "^3.21.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "optionalPeerDependencies": {
+    "wagmi": ">1.0.0",
+    "viem": ">1.0.0"
+  }
+}

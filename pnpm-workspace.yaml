@@ -1,0 +1,10 @@
+packages:
+  - "cli"
+  - "core"
+  - "config"
+  - "docs"
+  - "docs-alpha"
+  - "e2e"
+  - "examples/*"
+  - "bundlers/*"
+  - "lsp/*"
